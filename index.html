@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinnecta Pro - Calculadora Dropshipping</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    <meta name="description" content="Calculadora profesional para dropshipping con análisis de rentabilidad y CPA">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #000;
+        }
+        
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            border: none;
+            display: block;
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 50%, #1a1a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            color: #eab308;
+            gap: 20px;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading h1 {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(to right, #eab308, #fde047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(234, 179, 8, 0.1);
+            border-top-color: #eab308;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">
+        <h1>💰 Coinnecta Pro</h1>
+        <div class="spinner"></div>
+        <p style="color: #9ca3af; font-size: 14px;">Cargando calculadora...</p>
+    </div>
+    
+    <iframe 
+        id="app"
+        src="https://claude.site/artifacts/403bae4a-faef-4e7a-b31e-34f64fb5fdc8"
+        allow="clipboard-read; clipboard-write"
+        loading="eager"
+        title="Coinnecta Pro - Calculadora Dropshipping"
+    ></iframe>
+    
+    <script>
+        const iframe = document.getElementById('app');
+        const loading = document.getElementById('loading');
+        
+        iframe.addEventListener('load', function() {
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 500);
+        });
+        
+        // Fallback por si no carga
+        setTimeout(() => {
+            loading.classList.add('hidden');
+        }, 3000);
+    </script>
+</body>
+</html>
